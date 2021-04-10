@@ -14,14 +14,19 @@
         <div>
             <a class="absolute top-0 right-0 p-4 text-xl bg-yellow-200" href="./">One level up</a>
         </div>
-        <h1>x-bind(:)</h1>
+        <h1>
+            x-bind(:)
+            <span class="text-base ml-4">
+                <a target="_blank" href="https://github.com/martin-masterclass/AlpineJS_Course/commit/b1495055b923f796437afa29959ac4fbbff68ba6">See lecture on GitHub</a>
+            </span>
+        </h1>
         <div class="flex flex-col lg:flex-row lg:gap-16">
             <div id="left" class="lg:w-1/2">
                 <p id="new" class="bg-gray-200 p-2 rounded shadow text-lg">
                     NEW: x-bind(:)<br>
                     <b>x-bind</b>: Sets value of HTML attribute, e.g. <i>value, style, class</i>  etc." 
                 </p>
-                <h2>x-bind (:)</h2>
+                <h2>x-bind (:) - manipulate HTML attributes</h2>
 
                 <!-- Example 1 -->
                 <p class="text-lg"><b>Example 1:</b> Set value of input with object value</p>
@@ -40,7 +45,7 @@
 
             </div>
             <div id="right" class="lg:w-1/2">
-                <h3>Steps Example 1</h3>
+                <h3 class="mt-0">Steps Example 1</h3>
                 <ol>
                     <li>In Input define <b>x-data="{ myVar: 'new text'}"</b> and then bind: <b>:value="myVar"</b></li>
                 </ol>

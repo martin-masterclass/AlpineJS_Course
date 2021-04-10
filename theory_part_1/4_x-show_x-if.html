@@ -14,7 +14,12 @@
         <div>
             <a class="absolute top-0 right-0 p-4 text-xl bg-yellow-200" href="./">One level up</a>
         </div>
-        <h1>x-show / x-if</h1>
+        <h1>
+            x-show / x-if
+            <span class="text-base ml-4">
+                <a target="_blank" href="https://github.com/martin-masterclass/AlpineJS_Course/commit/02ded48e30da04a38c2881256958ccee090b30c9">See lecture on GitHub</a>
+            </span>
+        </h1>
         <div class="flex flex-col lg:flex-row lg:gap-16">
             <div id="left" class="lg:w-1/2">
                 <p id="new" class="bg-gray-200 p-2 rounded shadow text-lg">
@@ -22,7 +27,7 @@
                 </p>
                 
                 <!-- Example 1: x-show, ternary expressions -->
-                <h2>x-show, ternary expressions</h2>
+                <h2>x-show / x-if: Hide or show elements 2 different ways</h2>
                 <p class="text-lg"><b>Example 1:</b> Show element only with condition <b>x-show</b></p>
                 <section x-data="{ 
                     show : false,
@@ -64,7 +69,7 @@
 
             </div>
             <div id="right" class="mt-10 lg:mt-0 lg:w-1/2">
-                <h3>Steps Example 1</h3>
+                <h3 class="mt-0">Steps Example 1</h3>
                 <ol>
                     <li>Give the section an object <b>x-data="{show : false}"</b></li>
                     <li>Make the visibility of the span dependend on the object <i>show</i> by giving it a <b>x-show="show"</b>, and try it out.</li>

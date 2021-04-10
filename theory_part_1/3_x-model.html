@@ -14,14 +14,19 @@
         <div>
             <a class="absolute top-0 right-0 p-4 text-xl bg-yellow-200" href="./">One level up</a>
         </div>
-        <h1>x-model</h1>
+        <h1>
+            x-model
+            <span class="text-base ml-4">
+                <a target="_blank" href="https://github.com/martin-masterclass/AlpineJS_Course/commit/525fd564cb800383312db74300ba3ff5cc220268">See lecture on GitHub</a>
+            </span>
+        </h1>
         <div class="flex flex-col lg:flex-row lg:gap-16">
             <div id="left" class="lg:w-1/2">
                 <p id="new" class="bg-gray-200 p-2 rounded shadow text-lg">
                     <b>x-model</b>: The Value of element(s) and the value of an object (data) influence each other.
                     <b>This is 2-Way-Binding!</b>
                 </p>
-                <h2>x-model</h2>
+                <h2>x-model: set object value to input value</h2>
 
                 <!-- Example 1 -->
                 <p class="text-lg"><b>Example 1:</b>Text in Input element goes to output immediately</p>
@@ -67,7 +72,7 @@
                 </ul>
             </div>
             <div id="right" class="mt-10 lg:mt-0 lg:w-1/2">
-                <h3>Steps Example 1</h3>
+                <h3 class="mt-0">Steps Example 1</h3>
                 <ol>
                     <li>Give the section <b>x-data="{myInput : ''}</b></li>
                     <li>Give the span <b>x-text="'Output: ' + myInput"</b></li>
