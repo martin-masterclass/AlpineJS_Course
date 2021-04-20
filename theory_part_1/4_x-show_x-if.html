@@ -60,10 +60,10 @@
                     Show
                     </button>
                     <template x-if="show">
-                        <span class="bg-gray-200 ml-3 p-2">I am supposed to be seen only when <b>show == true</b>. When I disappear, then I am removed from the DOM as well.</span>
+                        <span class="bg-gray-200 ml-3 p-2">Hi! When I am gone, you won't find me in the DOM! ;-)</span>
                     </template>
-                    <p class="mt-2">The text and color of the button is changed with the usage of ternary expressions.</p>
-                    <p>When the element is hidden, then it is still there, but it has <b>style="display:none;"</b></p>
+                    <p class="mt-2">If you want to use <b>x-if</b> you have to wrap the element, that you want to show or hide with a <b>template-tag</b>.</p>
+                    <p>In this case the element will be <b>removed completely from the DOM </b> on hide.</p>
                 </section>
 
 
