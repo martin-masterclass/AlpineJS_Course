@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_alpine_course.png">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <title>Functions with Alpine.js</title>
+    <style>
+        input {
+            padding: 2px;
+            border: 1px solid gray;
+        }
+    </style>
+
+    <script>
+        function myComponent(startName = '') {
+            return {
+
+                name: startName,
+
+                hello(name = '') {
+                    alert('hello ' + name );
+                },
+
+                sayMyName() {
+                    alert('Are you ' + this.name + '?');
+                    this.name = '';
+                }
+
+            }
+        }
+    </script>
+
+</head>
+<body class="bg-gradient-to-b from-gray-100 to-gray-300 bg-no-repeat h-full relative">
+    <div class="container bg-gray-50 mx-auto shadow-sm p-4 min-h-screen relative">
+        <div>
+            <a class="absolute top-0 right-0 p-4 text-xl bg-yellow-200" href="./">One level up</a>
+        </div>
+        <h1 class="flex flex-wrap items-center">
+            <span>Components in external files</span>
+            <span class="text-base ml-4">
+                <a target="_blank" href="">See lecture on GitHub</a>
+            </span>
+        </h1>
+        <div class="flex flex-col lg:flex-row lg:gap-16">
+            <div id="left" class="lg:w-1/2">
+                <div id="new" class="bg-gray-200 p-2 rounded shadow text-lg">
+                    <ul class="mb-0">
+                        <li>Outsource several components into one file </li>
+                    </ul>
+                </div>
+                
+                <!-- Example 1: Simple alert call with @click -->
+                <h3><b>Example 1:</b> Simple alert call with @click</h3>
+                <section>
+                    <button x-data @click="alert('Alert')" class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
+                        Trigger Alert
+                    </button>
+                </section>
+                
+                <!-- Example 2: @click -->
+                <h3><b>Example 2:</b> Call a function on @click</h3>
+                <section x-data="myComponent()">
+                    <button @click="hello()" class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
+                        Say Hello!
+                    </button>
+                </section>
+
+                <!-- Example 3: @click show name from Input -->
+                <h3><b>Example 3:</b> Reuse Component and use "this." for object values</h3>
+                <section x-data="myComponent('')">
+                    <button @click="sayMyName" class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
+                        SAY MY NAME !!!
+                    </button>
+                    <form @submit.prevent="sayMyName" class="inline">
+                       <input x-model="name"  type="text" placeholder="Enter Name" class="ml-2"> 
+                    </form>
+                </section>
+
+            </div>
+            <div id="right" class="mt-10 lg:mt-0 lg:w-1/2">
+                <h3 class="mt-0">Steps</h3>
+                <ol>
+                    <li>Create a folder <i><b>js</b></i> and in this folder a file <i><b>components.js</b></i>.</li>
+                    <li>Outsource the function <i><b>myComponent</b></i> into the file.</li>
+                    <li>Include the outsourced file via a <b>script tag</b>.</li>
+                    <li>Copy example 2 into <b>example 4</b>.</li>
+                    <li>In <i><b>component.js</b></i> create another function <b>myComponent2</b> with the <b><i>name</i></b> property and a copy of the "hello" function.</li>
+                    <li>Slightly change the Hello function in this copied function.</li>
+                    <li>In the new <b>example 4</b> use the new component: <b>myComponent</b> and check if everything works.</li>
+                </ol>
+            </div>
+        </div>
+
+
+    </div><!-- /Container -->
+    <!-- footer -->
+    <div class="bottom-0 container z-10 p-4 bottom-0 bg-red-100 mx-auto sticky text-sm">
+        This HTML document belongs to <a target="_blank" href="#">THE BEST ALPINE.JS COURSE ON THE PLANET</a>. Alpine.js is something that you HAVE to learn in 2020's! It is <b>new</b>, it is <b>modern</b>, it is <b>easy</b> and you will need it, and you love to use it in your web development career. <a href="#">CHECK OUT THE COURSE NOW!</a> Regards, Martin
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_alpine_course.png">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <title>Transitions simple - Alpine.js</title>
+    <style>
+        h3 { margin: 0;}
+        ol { margin: 5px 0 15px 0;}
+
+        .duration-4000 {
+            transition-duration: 4s;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-gray-100 to-gray-300 bg-no-repeat h-full relative">
+    <div class="container bg-gray-50 mx-auto shadow-sm p-4 min-h-screen relative">
+        <div>
+            <a class="absolute top-0 right-0 p-4 text-xl bg-yellow-200" href="./">One level up</a>
+        </div>
+        <h1 class="flex flex-wrap items-center">
+            <span>Simple Transitions</span>
+            <span class="text-base ml-4">
+                <a target="_blank" href="">See lecture on GitHub</a>
+            </span>
+        </h1>
+        <div class="flex flex-col lg:flex-row lg:gap-16">
+            <div id="left" class="lg:w-1/2">
+                <div id="new" class="bg-gray-200 p-2 rounded shadow text-lg">
+                    <ul class="m-0">
+                        <li class="mb-0">Adjust scaling, opacity and duration with inline modifiers together with <b>x-show</b>.</li>
+                    </ul>
+                </div>
+                
+                <!-- Example: Inline Transition + Modifiers -->
+                <h3 class="mt-8"><b>Example:</b> Inline Transition + Modifiers with <u>x-show</u></h3>
+                <section class="flex items-center h-24" x-data="{ visible: true }">
+
+                    <button 
+                     @click="visible = !visible"
+                     class="px-2 py-1 mr-4 h-8 bg-gray-200 hover:bg-gray-300 mt-2 rounded focus:outline-none">Toggle visibility</button>
+
+                    <div x-show="visible" 
+                    class="w-24 h-24 bg-yellow-500"></div>
+                </section>
+
+            </div>
+            <div id="right" class="mt-10 lg:mt-0 lg:w-1/2">
+                <h3 class="mt-0">Example</h3>
+                <ol>
+                    <li>Together with <b>x-show</b> you can use <b>.transition</b> to add an animation.</li>
+                    <li>The transition can be modified in <b>duration</b> in milliseconds and <b>scale</b> in percent). With <b>.opacity</b> you can switch the opacity transition on and off.</li>
+                    <li><b>Example:</b><br><i>x-show.transition.duration.300ms.scale.80.opacity="visible"</i></li>
+                </ol>
+            </div>
+        </div> 
+
+
+    </div><!-- /Container -->
+    <!-- footer -->
+    <div class="bottom-0 container z-10 p-4 bottom-0 bg-red-100 mx-auto sticky text-sm">
+        This HTML document belongs to <a target="_blank" href="#">THE BEST ALPINE.JS COURSE ON THE PLANET</a>. Alpine.js is something that you HAVE to learn in 2020's! It is <b>new</b>, it is <b>modern</b>, it is <b>easy</b> and you will need it, and you love to use it in your web development career. <a href="#">CHECK OUT THE COURSE NOW!</a> Regards, Martin
+    </div>
+</body>
+</html>

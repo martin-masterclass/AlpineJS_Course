@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_alpine_course.png">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="js/tabData.js"></script>
+    <title>x-spread - Tabs Example - Alpinejs</title>
+    <style>
+        ol { margin-top: 0; margin-bottom: 0;}
+        h3 { margin-bottom: 5px; margin-top: 3px;}
+
+
+        ol > li { margin-bottom: 10px;}
+        xmp { margin: 1px 0; }
+        #left h3 {
+            margin-top: 17px;
+        } 
+    </style>
+</head>
+<body class="bg-gradient-to-b from-gray-100 to-gray-300 bg-no-repeat h-full relative">
+    <div class="container bg-gray-50 mx-auto shadow-sm p-4 min-h-screen relative">
+        <div>
+            <a class="absolute top-0 right-0 p-4 text-xl bg-yellow-200" href="./">One level up</a>
+        </div>
+        <h1>
+            x-spread
+            <span class="text-base ml-4">
+                <a target="_blank" href="">See lecture on GitHub</a>
+            </span>
+        </h1>
+        <div class="flex flex-col lg:flex-row lg:gap-16">
+            <div id="left" class="lg:w-2/5">
+                <div id="new" class="bg-gray-200 p-2 rounded shadow text-lg">
+                    Outsource some of the Alpinejs functionality from HTML to JavaScript
+                </div>
+
+                <!-- Original Example -->
+                <section
+                x-data="dynamicTabs()"
+                x-init="myTabs = cat2"
+                class="mt-8">
+                    <template x-for="(myTab, index) in myTabs" :key="myTab">
+                        <span @click="tab=index; myTabs = cat2" :class="tab == index ? tabClasses + tabHiColor : tabClasses + tabNormalColors"
+                        x-text="myTab.title"></span>
+                    </template>
+                    <template x-for="(myTab, index) in myTabs" :key="myTab">
+                        <div
+                        x-html="myTab.body" 
+                        x-show="tab == index" class="mt-4 ml-2 block-inline" style="width: 350px;">
+                        </div>
+                    </template>
+                </section>
+
+                <!-- Copied Example with x-spread -->
+                <h3>Copied example with x-spread</h3>
+                <section
+                x-data="dynamicTabs()"
+                x-init="myTabs = cat2"
+                class="mt-8">
+                    <template x-spread="tabHeaders">
+                        <span @click="tab=index; myTabs = cat2" :class="tab == index ? tabClasses + tabHiColor : tabClasses + tabNormalColors"
+                        x-text="myTab.title"></span>
+                    </template>
+                    <template x-spread="tabContent">
+                        <div
+                        x-html="myTab.body" 
+                        x-show="tab == index" class="mt-4 ml-2 block-inline" style="width: 350px;">
+                        </div>
+                    </template>
+                </section>
+
+
+
+            </div>
+            <div id="right" class="mt-10 lg:mt-0 lg:w-3/5">
+                <h2 class="mt-0">Instructions</h2>
+                <ol>
+                    <li>Copy the tabs and paste the copy under the original tabs.</li>
+                    <li>Create 2 objects <i><b>tabHeaders</b></i> and <i><b>tabContent</b></i></li>
+                    <li>In each of the objects create an <b>['x-for']</b>, that gives you back:<br>
+                    <b><i>(myTab, index) in myTabs</i></b>
+                    </li>
+                    <li>Implement in tab headers by saying: <xmp class="text-lg"><template x-spread="tabHeaders"></template></xmp></li>
+                    <li>Do the same for the tab content.</li>
+                </ol>
+                <h2 class="mb-2">Reference</h2>
+                <a target="_blank" href="https://github.com/alpinejs/alpine#x-spread">https://github.com/alpinejs/alpine#x-spread</a>
+            </div>
+        </div>
+
+
+    </div><!-- /Container -->
+    <!-- footer -->
+    <div class="bottom-0 container z-10 p-4 bottom-0 bg-red-100 mx-auto sticky">
+        This HTML document belongs to <a target="_blank" href="#">THE BEST ALPINE.JS COURSE ON THE PLANET</a>. Alpine.js is something that you HAVE to learn in 2020's! It is <b>new</b>, it is <b>modern</b>, it is <b>easy</b> and you will need it, and you love to use it in your web development career. <a href="#">CHECK OUT THE COURSE NOW!</a> Regards, Martin
+    </div>
+    <script>
+        let dynamicTabs = () => {
+            return {
+                tab: 0,
+                tabClasses : 'px-5 py-3 rounded-xl rounded-b cursor-pointer ',
+                tabNormalColors: 'bg-gray-200 hover:bg-gray-300',
+                tabHiColor: 'bg-gray-400',
+                tabHeaders: {
+                    ['x-for']() {
+                        return '(myTab, index) in myTabs'
+                    },
+                },
+                tabContent: {
+                    ['x-for']() {
+                        return '(myTab, index) in myTabs'
+                    },
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

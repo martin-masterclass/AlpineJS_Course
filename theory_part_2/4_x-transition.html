@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_alpine_course.png">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <title>x-transition - Alpine.js</title>
+    <style>
+        h3 { margin: 0;}
+        ol { margin: 5px 0 15px 0;}
+    </style>
+</head>
+<body class="bg-gradient-to-b from-gray-100 to-gray-300 bg-no-repeat h-full relative">
+    <div class="container bg-gray-50 mx-auto shadow-sm p-4 min-h-screen relative">
+        <div>
+            <a class="absolute top-0 right-0 p-4 text-xl bg-yellow-200" href="./">One level up</a>
+        </div>
+        <h1 class="flex flex-wrap items-center">
+            <span>x-transition</span>
+            <span class="text-base ml-4">
+                <a target="_blank" href="">See lecture on GitHub</a>
+            </span>
+        </h1>
+        <div class="flex flex-col lg:flex-row lg:gap-16">
+            <div id="left" class="lg:w-1/2">
+                <div id="new" class="bg-gray-200 p-2 rounded shadow text-lg">
+                    <ul class="m-0">
+                        <li class="mb-0">Take more control with <b>x-transition:enter</b> and <b>x-transition:leave</b></li>
+                        <li class="mb-0">Define and use your own transition classes</li>
+                    </ul>
+                </div>
+
+                <!-- Example: Usage of x-transition + Tailwind Classes -->
+                <h3 class="mt-8"><b>Example:</b> Usage of x-transition + Tailwind Classes</h3>
+                <p>In this example we give a more detailed description how the transition should work, especially differences between fading-in and fading-out.</p>
+
+                <section x-data="{isOpen : false}" class="relative">
+                    <div
+                    @click="isOpen = !isOpen"
+                    @click.away="isOpen = false"
+                    id="button" class="bg-blue-200 hover:bg-blue-300 inline-block px-2 py-1 cursor-pointer">Open Menu</div>
+                    <div 
+                    x-show="isOpen"
+                    class="mt-2 z-10 absolute" id="submenu">
+                        <a target="_blank" class="px-2 py-1 inline-block w-32 cursor-pointer bg-blue-200 hover:bg-blue-300" href="https://www.google.com">Google</a><br>
+                        <a target="_blank" class="px-2 py-1 inline-block w-32 cursor-pointer bg-blue-200 hover:bg-blue-300" href="https://www.amazon.com">Amazon</a><br>
+                    </div>
+                </section>
+
+            </div>
+            <div id="right" class="mt-10 lg:mt-0 lg:w-1/2">
+
+                <h3>Example</h3>
+                <ol>
+                    <li>x-transition<b>:enter</b> contains the properties of "fading-in" = Appearance<br>
+                    x-transition<b>:leave</b> contains the properties of "fading-out" = Disappearance
+                    </li>
+                    <li>In <b>"..-start"</b> you place <b>CLASSES</b> with properties at the <b>beginning of the fading-in or fading-out.</b></li>
+                    <li>In <b>"..-end"</b> you place <b>CLASSES</b> with properties at the <b>beginning of the fading-in or fading-out.</b></li>
+                    <li><b>Example:</b><br><i>
+                        x-transition:enter="transition duration-4000"<br>
+                        x-transition:enter-start="opacity-0"<br>
+                        x-transition:enter-end="opacity-100"<br>
+                        x-transition:leave="transition duration-1000"<br>
+                        x-transition:leave-start="opacity-100"<br>
+                        x-transition:leave-end="opacity-0"<br>
+                    </i>
+
+                    </li>
+                </ol>
+                <h3>Own transition classes</h3>
+                <ol>
+                    <li>You can use your own transition classes, or combine the one's of TailwindCss with your own.</li>
+                    <li>For example, if you want to have a transition length of 4 seconds, which does not exist in Tailwind, you can add your own class:<br><b>.duration-4000 {
+                        transition-duration: 4s;
+                    }</b></li>
+                </ol>
+                <h3>Reference</h3>
+                <ul>
+                    <li><a target="_blank" href="https://tailwindcss.com/docs/transition-property">Tailwinds Transition Classes</a></li>
+                    <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property">developer.mozilla.org/en-US/docs/Web/CSS/transition-property</a>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+
+
+    </div><!-- /Container -->
+    <!-- footer -->
+    <div class="bottom-0 container z-10 p-4 bottom-0 bg-red-100 mx-auto sticky text-sm">
+        This HTML document belongs to <a target="_blank" href="#">THE BEST ALPINE.JS COURSE ON THE PLANET</a>. Alpine.js is something that you HAVE to learn in 2020's! It is <b>new</b>, it is <b>modern</b>, it is <b>easy</b> and you will need it, and you love to use it in your web development career. <a href="#">CHECK OUT THE COURSE NOW!</a> Regards, Martin
+    </div>
+</body>
+</html>
