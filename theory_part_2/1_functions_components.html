@@ -40,15 +40,36 @@
                 <!-- Example 1: Simple alert call with @click -->
                 <h3><b>Example 1:</b> Simple alert call with @click</h3>
                 <section>
-                    <button class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
+                    <button
+                    x-data
+                    @click="alert('alert')"
+                    class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
                         Trigger Alert
                     </button>
                 </section>
+
+                <script>
+
+                    function myComponent() {
+
+                        return {
+                            hello() {
+                                alert('Hello!');
+                            },                            
+                        }
+
+                    }
+
+
+                </script>
                 
                 <!-- Example 2: @click -->
                 <h3><b>Example 2:</b> Call a function on @click</h3>
                 <section>
-                    <button class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
+                    <button
+                    x-data="myComponent()"
+                    @click="hello()"
+                    class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
                         Say Hello!
                     </button>
                 </section>
