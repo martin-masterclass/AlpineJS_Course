@@ -51,11 +51,20 @@
                 <script>
 
                     function myComponent() {
-
                         return {
+
+                            myName: '',
+
                             hello() {
                                 alert('Hello!');
-                            },                            
+                            },
+                            sayMyName() {
+                                if (this.myName != '') {
+                                  alert('Are you ' + this.myName + '?');
+                                  this.myName = '';
+                                }
+                                
+                            }                          
                         }
 
                     }
@@ -76,12 +85,18 @@
 
                 <!-- Example 3: @click show name from Input -->
                 <h3><b>Example 3:</b> Reuse Component and use "this." for object values</h3>
-                <section>
-                    <button class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
+                <section
+                    x-data="myComponent()"
+                >
+                    <button
+                    @click="sayMyName()"
+                    class="bg-gray-200 p-1 rounded hover:bg-gray-300 border border-1 border-gray-500">
                         SAY MY NAME !!!
                     </button>
-                    <form class="inline">
-                       <input type="text" placeholder="Enter Name" class="ml-2"> 
+                    <form @submit.prevent="sayMyName" class="inline">
+                       <input
+                       x-model="myName" 
+                       type="text" placeholder="Enter Name" class="ml-2"> 
                     </form>
                 </section>
 
@@ -114,7 +129,7 @@
                 <ol>
                     <li>Copy Example 2 into Example 3 and use the same component <b>myComponent</b> in <i>x-data</i>.</li>
                     <li>Add a text-input.</li>
-                    <li>Give <b>myComponent</b> a property <i>name</i> with a default of an empty string, and bind the text-input with <b>x-model</b> to that property.</li>
+                    <li>Give <b>myComponent</b> a property <i>myName</i> with a default of an empty string, and bind the text-input with <b>x-model</b> to that property.</li>
                     <li>Create a second method <i>sayMyName()</i> in <i>myComponent</i> and concatenate the name in the alert. But make sure you use <b>this.</b> to reference the property: <b><i>name</i></b>.</li>
                     <li>Wrap the text-input in a form-tag. Give the form a <b>@submit.prevent="sayMyName"</b>, so the function is also triggered when you hit the ENTER key on your keyboard.</li>
                     <li>In the "SayMyName-Method" reset the value of "name" with <b>this.name = '';</b>, after the alert.</li>
