@@ -9,31 +9,13 @@
     <link rel="stylesheet" href="../css/styles.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <title>Functions with Alpine.js</title>
+    <script src="js/component.js"></script>
     <style>
         input {
             padding: 2px;
             border: 1px solid gray;
         }
     </style>
-
-    <script>
-        function myComponent(startName = '') {
-            return {
-
-                name: startName,
-
-                hello(name = '') {
-                    alert('hello ' + name );
-                },
-
-                sayMyName() {
-                    alert('Are you ' + this.name + '?');
-                    this.name = '';
-                }
-
-            }
-        }
-    </script>
 
 </head>
 <body class="bg-gradient-to-b from-gray-100 to-gray-300 bg-no-repeat h-full relative">
