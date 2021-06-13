@@ -16,6 +16,7 @@
         .duration-4000 {
             transition-duration: 4s;
         }
+        [x-cloak] { display: none !important; }
     </style>
 </head>
 <body class="bg-gradient-to-b from-gray-100 to-gray-300 bg-no-repeat h-full relative">
@@ -47,6 +48,7 @@
                     <!-- Submenu -->
                     <div
                     x-show="isOpen"
+                    x-cloak
                     x-transition:enter="transition duration-4000"
                     x-transition:enter-start="opacity-0"
                     x-transition:enter-end="opacity-100"
@@ -58,13 +60,16 @@
                         <a target="_blank" class="px-2 py-1 inline-block w-32 cursor-pointer bg-blue-200 hover:bg-blue-300" href="https://www.amazon.com">Amazon</a><br>
                     </div>
                 </section>
+                
 
             </div>
             <div id="right" class="mt-10 lg:mt-0 lg:w-1/2">
 
                 <h3>Instructions</h3>
                 <ol>
-                    <li>Go to <a target="_blank" href="https://github.com/alpinejs/alpine#x-cloak">https://github.com/alpinejs/alpine#x-cloak</a> and insert the example style into the top of this document.</li>
+                    <li>Open Chrome Devtools, go to the "Network Tab" and disable browser caching by checking "Disable Cache".</li>
+                    <li>Reload the page and observe how the menu "flashes". This is, because the <b>x-show</b> only evaluates after Alpinejs has completed loading. To fix this, do like so:</li>
+                    <li>Go to <a target="_blank" href="https://alpinejs.dev/directives/cloak">https://alpinejs.dev/directives/cloak</a> and insert the example style into the top of this document.</li>
                     <li>Add <b>x-cloak</b> to the div that holds the submenu.</li>
                     <li>The flashing of the submenu on page load should be gone now.</li>
                 </ol>
